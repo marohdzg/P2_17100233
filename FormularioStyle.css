@@ -1,0 +1,28 @@
+#contenedorform {
+    width: 500px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: #ffe;
+    border: 1px solid #CCC;
+    padding: 10px 0 10px 0;
+    font-size: 25px;
+    font-family: 'Segoe UI';
+}
+
+#contenedorform form label {
+    width: 120px;
+    float: left;
+    font-family: verdana;
+    font-size: 14px;
+}
+
+.botonsubmit {
+    color: white;
+    background-color: blue;
+}
+
+#label{
+    display: block;
+    margin: 10px;
+}
+
