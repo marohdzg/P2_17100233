@@ -1,0 +1,335 @@
+= Resumen de la Unidad 1
+Jesús Bulmaro Hernández García, 17100233
+:toc: left
+:toc-title: Índice de contenidos
+:icons: font
+
+== Modelo de caja
+
+El **modelo de caja** es la manera en que se representan todos los elementos html en una página. Cada elemento genera una caja, el comportamiento de esa caja depende de su clasificación: si es de línea o de bloque.
+
+A todas las cajas se les puede aplicar las siguientes propiedades: **width, height, padding, margin, border, background**. Lo particular de este concepto es que por defecto el **width** se refiere al **ancho del contenido** de un elemento (no al ancho total, de borde a borde).
+
+En el gráfico se muestra cómo se comporta cada una de las propiedades:
+
+image::https://www.laurachuburu.com.ar/images/tutoriales/css/modelo-de-caja.png[Error en la conexión.]
+
+Para calcular el **ancho total** de un elemento es necesario sumar el ancho, más los dos padding (izquierda y derecha), más los bordes  (izquierda y derecha). En cuanto a los valores verticales pasa lo mismo, pero en diseño web generalmente nos preocupa más definir los anchos de los elementos ya que las alturas están dadas en general por el contenido de cada elemento.
+
+Existe una propiedad nueva (CSS3) que modifica este concepto y si la aplicamos, se considera el ancho del elemento a la distancia entre los bordes. Esta propiedad es **box-sizing:border-box**.
+
+El **background** (imagen o color) ocupa todo el elemento desde los bordes.
+El **margin** es la distancia desde el borde de un elemento hacia otro.
+El **padding** es la distancia desde el borde hacia el contenido.
+
+Para que un elemento acepte las propiedades **width, height, padding y margin** tiene que ser de bloque. Si la etiqueta no es bloque originalmente, se puede modificar su condición con otra propiedad CSS: **display**.
+
+=== Medidas flexibles
+
+Existen propiedades que definen el valor máximo o mínimo, éstas permiten mayor flexibilidad y se usan especialmente en los sitios responsive:
+
+- **Max-width**: ancho máximo. El elemento no puede ser más ancho que el valor especificado pero sí puede achicarse.
+- **Min-width**: ancho mínimo.  El elemento no puede ser más angosto que el valor especificado pero sí puede agrandarse.
+- **Max-height**: alto máximo. El elemento no puede ser más alto que el valor especificado pero sí puede achicarse.
+- **Min-height**: alto mínimo. El elemento no puede ser más bajo que el valor especificado pero sí puede agrandarse.
+
+=== Contenido (content)
+
+Se trata del contenido HTML del elemento (las palabras de un párrafo, una imagen, el texto de una lista de elementos, etc.).
+
+=== Relleno (padding) 
+
+Espacio libre opcional que hay entre el contenido y el borde.
+
+=== Borde (border) 
+Línea que encierra completamente el contenido y su relleno.
+
+=== Margen (margin) 
+Separación opcional que existe entre la caja y el resto de cajas adyacentes a esta.
+
+=== Contorno (outline)
+Guarda muchas similitudes con la propiedad border, sin embargo, existen diferencias entre ambos:
+
+- Los **outline** no ocupan espacio, mientras que los bordes normales sí.
+- Los **outline** pueden tener formas no rectangulares. 
+- Los **outline** siempre se dibujan "por encima del elemento", por lo que no modifican la posición o el tamaño total de los elementos. 
+
+== Propiedad Display
+
+=== None
+Hace que el elemento no genere ninguna caja. El elemento desaparece por completo de la página y no ocupa sitio, por lo que los elementos adyacentes ocupan su lugar.
+
+=== Inline
+Hacen que la caja de un elemento sea de línea. Un elemento de línea sólo ocupa el espacio necesario para mostrar sus contenidos.
+
+=== Block
+Hacen que la caja de un elemento sea de bloque. Siempre empiezan en una nueva línea y siempre ocupan todo el espacio disponible en la línea, aunque sus contenidos no ocupen todo el sitio.
+
+=== Inline-block
+Crea cajas que son de bloque y en línea de forma simultánea. Una caja de este tipo se comporta como si fuera de bloque, pero respecto a los elementos que la rodean es una caja en línea.
+
+== box-sizing 
+Es una propiedad CSS para cambiar el modelo de caja por defecto de los navegadores.
+
+=== content-box
+El ancho de un elemento se altera si se le aplica un borde o un padding. Eso es porque la anchura del elemento que tu especificas con CSS, por defecto no incluye borde ni padding.
+
+=== border-box
+Con border-box, hacemos que el ancho especificado sea el equivalente al ancho total.
+
+== Flujo del documento
+El flujo HTML es el modo en el que se van colocando los componentes de la página, a partir de cómo aparecen en el código HTML y los atributos CSS de los elementos.
+
+El flujo de la página es algo así como el flujo de escritura de elementos dentro del lienzo que nos presenta el navegador.
+
+El navegador, en el momento que interpreta el código HTML de la página, va colocando en la página los elementos (definidos por medio de etiquetas HTML) según los va encontrando en el mismo código. 
+
+== Posicionamiento
+
+=== static 
+Estática en relación al flujo. 
+
+IMPORTANT: Por default el posicionamiento es **estático**.
+
+=== relative 
+Relativa en su posición en el flujo. Puede reposicionarse mediante top, bottom, left, right y z-index.
+
+=== absolute 
+En relación a su contenedor padre posicionado. Se suele usar relative para el padre.
+
+=== fixed
+Independiente, no sigue el flujo del documento.
+
+=== sticky 
+Combinación de relative y fixed. 
+
+== Unidades de medida
+
+=== Absolutas
+[cols="3*"]
+.Absolutas
+|===
+|Unidad
+|Significado
+|Medida aprox.
+|in
+|Pulgadas
+|1in = 25.4mm
+|cm 	
+|Centímetros 	
+|1cm = 10mm
+|pc 	
+|Picas 	
+|1pc = 4.23mm
+|mm 	
+|Milímetros 	
+|1mm = 1mm
+|pt 	
+|Puntos 	
+|1pt = 0.35mm
+|px 	
+|Píxels 	
+|1px = 0.26mm
+|Q
+|Cuarto de mm 
+|1Q = 0.248mm
+|===
+
+=== Relativas
+[cols="3*"]
+.Relativas
+|===
+|Unidad 	
+|Significado 	
+|Medida aproximada
+|em 	
+|«M» 	
+|1em = tamaño de la fuente del navegador
+|ex 	
+|«X» (~0.5em) 	
+|1ex = ~ mitad del tamaño de la fuente del navegador
+|ch 	
+|«zero width» 	
+|1ch = ancho del cero
+|rem 	
+|«root M» 	
+|1rem = tamaño fuente raíz
+|% 	
+|Porcentaje 	
+|Relativa a herencia
+|===
+
+- **em** se utiliza para hacer referencia al tamaño actual de la fuente del elemento en cuestión. Así, una cantidad de 1em sería el tamaño actual de la fuente exactamente, y una cantidad de 2em sería justo el doble. Por otro lado, 1ex es aproximadamente la mitad del tamaño de la fuente.
+
+- **ex** está basada en la altura de la x minúscula, que es aproximadamente un poco más de la mitad de la fuente actual.
+
+- **ch**, que equivale al tamaño de ancho del 0 de la fuente actual, aunque en la práctica es un tipo de unidad que no suele ser utilizada demasiado.
+
+- **rem** permite establecer un tamaño para el documento en general. Con esto, estamos indicando el factor de escala (respecto al tamaño general que indicamos en el body).
+
+=== Flexibles
+[cols="3*"]
+.Flexibles
+|===
+|Unidad 	
+|Significado 	
+|Medida aproximada
+|vw 	
+|viewport width 	
+|1vw = 1% ancho de navegador
+|vh 
+|viewport height 	
+|1vh = 1% alto de navegador
+|vmin 	
+|viewport minimum 	
+|1vmin = 1% de alto o ancho (el mínimo)
+|vmax 	
+|viewport maximum 	
+|1vmax = 1% de alto o ancho (el máximo)
+|===
+
+- **vw** hace referencia al ancho del viewport.
+- **vh** hace referencia al alto. 
+- **vmin** y **vmax**, que simplemente se utilizan para utilizar el porcentaje de ancho o alto del viewport, dependiendo cual sea más pequeño o más grande de los dos, lo que puede ser útil en algunas situaciones donde quieres flexibilidad con diseños adaptables
+
+== Selectores básicos
+
+=== Selector de tipo
+- Selecciona todos los elementos que coinciden con el nombre del elemento especificado. +
+
+- Sintaxis: eltname
+
+TIP: **input** se aplicará a cualquier elemento _<input>_.
+
+=== Selector de clase
+- Selecciona todos los elementos que tienen el atributo de class especificado.
+- Sintaxis: .classname
+
+TIP: **.index** seleccionará cualquier elemento que tenga la clase _"index"_.
+
+=== Selector de ID
+- Selecciona un elemento basándose en el valor de su atributo id. Solo puede haber un elemento con un determinado ID dentro de un documento.
+- Sintaxis: #idname
+
+TIP: **#toc** se aplicará a cualquier elemento que tenga el ID _"toc"_.
+
+=== Selector universal
+- Selecciona todos los elementos. Opcionalmente, puede estar restringido a un espacio de nombre específico o a todos los espacios de nombres.
+- Sintaxis: * ns|* *|*
+
+TIP: ***** se aplicará a todos los _elementos del documento_.
+
+=== Selector de atributo
+- Selecciona elementos basándose en el valor de un determinado atributo.
+- Sintaxis: [attr] [attr=value] [attr~=value] [attr|=value] [attr^=value] [attr$=value] [attr*=value]
+
+TIP: **[autoplay]** seleccionará todos los elementos que tengan el atributo _"autoplay"_ establecido (a cualquier valor). 
+
+== Combinadores
+
+[cols="4*"]
+.Combinadores
+|===
+|Nombre
+|Descripción
+|Sintaxis
+|Ejemplo
+|Combinador de hermanos adyacentes
+|El combinador + selecciona hermanos adyacentes. Esto quiere decir que el segundo elemento sigue directamente al primero y ambos comparten el mismo elemento padre.
+|A + B
+|La regla h2 + p se aplicará a todos los elementos <p> que siguen directamente a un elemento <h2>.
+|Combinador general de hermanos
+|El combinador ~ selecciona hermanos. Esto quiere decir que el segundo elemento sigue al primero (no necesariamente de forma inmediata) y ambos comparten el mismo elemento padre.
+|A ~ B
+|La regla p ~ span se aplicará a todos los elementos <span> que siguen un elemento <p>.
+|Combinador de hijo
+|El combinador > selecciona los elementos que son hijos directos del primer elemento.
+|A > B
+|La regla ul > li se aplicará a todos los elementos <li> que son hijos directos de un elemento <ul>.
+|Combinador de descendientes
+|El combinador   (espacio) selecciona los elementos que son descendientes del primer elemento.
+|A B
+|La regla div span se aplicará a todos los elementos <span> que están dentro de un elemento <div>.
+|===
+
+== Pseudoselectores
+
+=== Pseudoclases
+NOTE: Suelen hacer referencia al **estado** del elemento.
+[cols="3*"]
+.Pseudoclases
+|===
+| Selector | Ejemplo | Descripción
+|:active|a:active|Selecciona el enlace activo.
+|:checked|input:checked|Selecciona cada elemento ***input*** comprobado.
+|:disabled|input:disabled|Selecciona cada elemento ***input*** deshabilitado.
+|:empty|p:empty|Selecciona cada elemento ***p*** que no tiene hijos.
+|===
+
+=== Pseudo elementos
+NOTE: Suelen hacer referencia a **determinadas partes** de un elemento.
+[cols="3*"]
+.Pseudoelementos
+|===
+|Selector|Ejemplo|Descripción
+|::before|p::before|Inserta contenido antes de cada elemento ***p***.
+|::first-letter|p::first-letter|Selecciona la primera letra de cada elemento ***p***.
+|::first-line|p::first-line|Selecciona la primer letra de cada elemento ***p***.
+|::selection|p::selection|Selecciona la porción de un elemento que está seleccionada por el usuario.
+|===
+
+== La cascada y sus niveles
+
+Para saber que bloque de estilos tiene prioridad, CSS analiza (por orden) tres conceptos clave del código CSS: su importancia, la especificidad y su orden.
+
+=== Importancia
+Se determina dependiendo de las hojas de estilo donde está colocado.
+
+[cols="2*"]
+.Hojas de estilo
+|===
+|Tipo de hojas de estilo 	|Descripción
+|Agente de usuario 	|Son los estilos CSS que aplica el navegador por defecto.
+|CSS de usuario 	|Son los estilos CSS que añade el usuario, por razones específicas.
+|CSS de autor 	|Son los estilos CSS que coloca el autor de la página.
+|===
+
+Aunque no es recomendable utilizarlo frecuentemente (puede convertirse en una mala costumbre), se puede añadir al final de cada regla el texto !important, consiguiendo que la regla en cuestión tenga prioridad sobre las demás, independientemente del nivel o la altura a la que estén.
+
+WARNING: En el caso de que una misma propiedad del CSS de usuario y una propiedad del CSS de autor tuvieran !important, como caso excepcional tendría prioridad la del CSS de usuario sobre la del CSS de autor.
+
+=== Especificidad
+Para saber si un bloque de CSS es más específico que otro (y por lo tanto, tiene prioridad) sólo hay que calcular sus componentes.
+
+==== Cómo calcular la especificidad
+[cols="2*"]
+.Valores de especificidad
+|===
+|Selector    |Valor
+|Elemento, pseudoelemento |1
+|Clase, pseudoclase, atributo |10
+|ID |100
+|Etiqueta (html) |1000
+|!important	|10000
+|===
+
+==== Ejemplo
+[source, css]
+div { ... }                     /* Especificidad: 0,0,0,1 */
+div div { ... }                 /* Especificidad: 0,0,0,2 */
+#pagina div { ... }             /* Especificidad: 0,1,0,1 */
+#pagina div:hover { ... }       /* Especificidad: 0,1,1,1 */
+#pagina div:hover a { ... }     /* Especificidad: 0,1,1,2 */
+#pagina .sel:hover > a { ... }  /* Especificidad: 0,1,2,1 */
+
+=== Orden
+
+En **CSS**, es posible crear múltiples reglas CSS para definir un mismo concepto. En este caso, la que prevalece ante todas las demás depende de ciertos factores, como es la «altura» a la que está colocada la regla:
+
+1. El CSS embebido en un elemento HTML es el que tiene mayor precedencia, por lo que siempre será el que tenga prioridad sobre otras reglas CSS.
+
+2. En segundo lugar, el CSS interno definido a través de bloques style en el propio documento HTML será el siguiente a tener en cuenta en orden de prioridad.
+
+3. Por último, los documentos CSS externos son la tercera opción de prioridad a la hora de tomar en cuenta las reglas CSS.
+
+Teniendo esto en cuenta, hay que recordar que las propiedades que prevalecerán serán las que estén en último lugar, siempre respetando la prioridad de la lista anterior.
