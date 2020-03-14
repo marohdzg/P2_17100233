@@ -4,8 +4,26 @@
 <head>
     <title>Formulario</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="StylesResponsive.css">
+    <link rel="stylesheet" href="StylesBootstrap.css">
     <link href='https://css.gg/chevron-right-r.css' rel='stylesheet'>
+    <style>
+    
+        .myContainer
+        {
+            border: 5px solid blue;
+        }
+        .myRow{
+            border: 1 px solid yellowgreen;
+            background-color:yellowgreen;
+            padding: 10px;
+        }
+        .myCol{
+            border: 5 px dotted orange;
+            background-color: blueviolet;
+            height: 40px;
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,7 +46,7 @@
     
     <form action="" class="main-form needs-validation" novalidate>
         <div class="row">
-            <div class="col-sm-3 col-md-4 col-lg-5 col-xl-6">
+            <div class="col">
                 <div class="form-group">
                     <br>
                     <label for="username">Nombre(s):</label>
@@ -36,7 +54,7 @@
                     <div class="invalid-feedback">Prueba con otro nombre de usuario [Username]</div>
                 </div>
             </div>
-            <div class="col-sm-3 col-md-4 col-lg-5 col-xl-6">
+            <div class="col">
                 <div class="form-group">
                     <br>
                     <label for="Apellido">Apellido(s)</label>
@@ -45,39 +63,34 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="row">
-                <div class="col-sm-6 col-md-8 col-lg-10 col-xl-12">
-                    <label for="Username">Usuario</label>
-                    <input type="text" name="username" id="username" class="form-control" required >
-                    <div class="invalid-feedback">Prueba con otro nombre de usuario [x]</div>
-                    <div class="valid-feedback">¡Suena bien!</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-8 col-lg-10 col-xl-12">
-                <label for="Password">Contraseña</label>
-                <input type="password" name="password" id="password" class="form-control" required>
-            </div>
+            <label for="Username">Usuario</label>
+            <input type="text" name="username" id="username" class="form-control" required>
         </div>
         <div class="form-group">
-            <div class="row">
-                <div class="col-sm-6 col-md-8 col-lg-10 col-xl-12">
-                    <label for="gender" id="gender"> Gender</label>
-                    <select name="gender" id="gender" class="form-control" required>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                </div>        
-            </div>
+            <label for="Password">Contraseña</label>
+            <input type="password" name="password" id="password" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="gender" id="gender">Género</label>
+            <select name="gender" id="gender" class="form-control">
+                <option value="male">Masculino</option>
+                <option value="female">Femenino</option>
         </div>
         
         </select>
         <div class="form-check">
-            <input type="checkbox" id="accept-terms" class="form-check-input" required> 
-            <label for="accept-terms" class="form-check-label">Aceptar términos y condiciones</label>
+            <br>
+            <input type="checkbox" id="accept-terms" class="form-check-input">
+            <label for="accept-terms" class="form-check-label">Aceptar Términos y Condiciones</label>
         </div>
-        <br>
-        <button type="submit" class="btn btn-outline-primary" id="btnSubmit">Aceptar<i type="submit" class="gg-chevron-right-r" id="image"></i></button>
+        <button type="submit" class="btn btn-outline-primary" id="btnSubmit"> Aceptar
+            <div class="row">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col">
+                    <i type="submit" class="gg-chevron-right-r" id="image"></i></button>
+                </div>
+            </div>
     </form>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
