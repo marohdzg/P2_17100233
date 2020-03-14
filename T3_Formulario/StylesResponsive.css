@@ -1,0 +1,16 @@
+.main-form{
+    width: 450px;
+    margin: auto;
+}
+
+#btnSubmit
+{
+    width: 150px;
+    height: auto;
+    margin: auto;
+    text-align: center;
+}
+
+label{
+    display: block;
+}
